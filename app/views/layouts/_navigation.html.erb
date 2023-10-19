@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ft-navbar">
+  <div class="container-fluid">
+    <%= link_to "PhotoApp", root_path, class: "navbar-brand ft-brand", id: "home" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Link</a>
+        </li>
+        <% if user_signed_in? %>                
+          <li class="nav-item dropdown nav-item-custom nav-dropdown-custom">
+            <a class="nav-link dropdown-toggle nav-item-child-custom" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= fa_icon 'user' %> <%= current_user.email%>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">               
+              <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", data:{ turbo_method: :delete}, id: "logout" %></li>            
+            </ul>            
+          </li>
+        <% end %>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <% if !user_signed_in? %>
+          <%= link_to "Log in", user_session_path, class: "btn btn-outline-primary hor-space", id: "login" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary hor-space", id: "signup" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

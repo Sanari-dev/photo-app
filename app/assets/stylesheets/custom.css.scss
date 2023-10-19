@@ -1,0 +1,131 @@
+// common
+.ft-brand{
+  font-size: 1.75rem !important;
+  padding: 0 0.5rem 0.5rem 0.5rem !important;
+}
+
+// nav & form
+.ft-navbar{
+  margin-bottom: 2rem !important;
+}
+
+.ft-auth-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+  margin-top: 7rem;
+}
+
+.ft-submit-center{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ft-auth-form{
+  width: 30%;
+}
+
+// content
+.search-area{
+  padding-top: 3.5rem;
+}
+
+.ml-1{
+  margin-left: 1rem;
+}
+
+.center-column{
+  display: flex;
+  justify-content: center;
+}
+
+.no-right-rounded{
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;  
+}
+
+.pr-0{
+  padding-right: 0 !important;
+}
+
+.pl-0{
+  padding-left: 0 !important;
+}
+
+.no-left-rounded{
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.results-block{
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+// button
+.hor-space{
+  margin: 0 0.5rem 0 0.5rem !important;
+}
+
+// footer
+.custom-footer-container{
+  display: block !important;
+}
+
+// Flicker pagination
+.flickr_pagination {
+  margin-top: 2.5rem;
+  text-align: center;
+  padding: 0.3em;
+  cursor: default;
+}
+
+.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+  padding: 0.2em 0.5em; 
+}
+
+.flickr_pagination .disabled {
+  color: #aaaaaa; 
+}
+
+.flickr_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: white; 
+  border-color: #0095f7;
+  background: #0095f7;
+  border-radius: 5px;
+}
+
+.flickr_pagination a {
+  // border: 1px solid #dddddd;
+  color: #0095f7;
+  text-decoration: none; 
+}
+
+.flickr_pagination a:hover, .flickr_pagination a:focus {
+  border-color: #0095f7;
+  background: #0095f7;
+  border-radius: 5px;
+  color: white; 
+}
+
+.flickr_pagination .page_info {
+  color: #aaaaaa;
+  padding-top: 0.8em; 
+}
+
+.flickr_pagination .previous_page, .flickr_pagination .next_page {
+  border-width: 2px; 
+}
+
+.flickr_pagination .previous_page {
+  margin-right: 1em; 
+}
+
+.flickr_pagination .next_page {
+  margin-left: 1em; 
+}
