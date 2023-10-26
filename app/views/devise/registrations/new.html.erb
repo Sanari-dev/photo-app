@@ -1,8 +1,42 @@
 <%= render 'shared/errors', resource: resource %>
 <div class="ft-auth-container">
   <h1><%= t('.sign_up') %></h1>
+  <div class="col">
+      <button id="pay-button">Pay!</button>
+      <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre> 
+
+  <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
+      <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<%= Midtrans.config.client_key %>"></script>
+      <script type="text/javascript">
+        document.getElementById('pay-button').onclick = function(){
+          // SnapToken acquired from previous step
+          snap.pay('<%= @token %>', {
+            // Optional
+            onSuccess: function(result){
+              /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+              document.getElementById('payment_transaction_id').value += result.transaction_id;
+              document.getElementById('payment_transaction_status').value += result.status_code;
+            },
+            // Optional
+            onPending: function(result){
+              /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+            },
+            // Optional
+            onError: function(result){
+              /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+            }
+          });
+        };
+      </script>
+  </div>
   <div class="ft-auth-form">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>      
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>   
+
+      <%= fields_for(:payment) do |p|%>
+        <%= p.hidden_field(:transaction_id, :value => params[:transaction_id]) %> 
+        <%= p.hidden_field(:transaction_status, :value => params[:transaction_status]) %> 
+      <% end %>  
+      
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
@@ -21,7 +55,7 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
       </div>
-
+      
       <div class="form-group ft-submit-center">
         <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
       </div>

@@ -19,7 +19,7 @@
             <li>Responsive design</li>
             <li>Access anywhere</li>
           </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">Sign up</button>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary hor-space", id: "signup" %>
         </div>
       </div>
     </div>
@@ -36,10 +36,9 @@
             <li>Access anywhere</li>
             <li>Unlimited projects</li>
           </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">Sign up</button>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary hor-space", id: "signup" %>
         </div>
       </div>
-    </div>    
-  </div>
+    </div>       
 </div>
 <% end %>
