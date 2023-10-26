@@ -1,9 +1,9 @@
 <%= render 'shared/errors', resource: resource %>
 <div class="ft-auth-container">
   <h1><%= t('.sign_up') %></h1>
+  <br/>
   <div class="col">
-      <button id="pay-button">Pay!</button>
-      <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre> 
+      <button class="btn btn-outline-primary hor-space" id="pay-button">Proceed the payment</button>
 
   <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
       <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<%= Midtrans.config.client_key %>"></script>
@@ -13,7 +13,6 @@
           snap.pay('<%= @token %>', {
             // Optional
             onSuccess: function(result){
-              /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
               document.getElementById('payment_transaction_id').value += result.transaction_id;
               document.getElementById('payment_transaction_status').value += result.status_code;
             },
