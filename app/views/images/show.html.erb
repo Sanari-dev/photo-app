@@ -1,0 +1,7 @@
+<%= render @image %>
+
+<div class="img-show-container">
+  <%= link_to "Edit", edit_image_path(@image), class: "btn btn-sm btn-success ml-1" %>
+  <%= button_to "Delete", @image, method: :delete, class: "btn btn-sm btn-danger ml-1" %>
+  <%= link_to "Back to images", images_path, class: "btn btn-sm btn-secondary ml-1" %>
+</div>

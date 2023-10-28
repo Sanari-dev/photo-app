@@ -79,3 +79,6 @@ end
 
 gem "devise", "~> 4.9"
 gem 'veritrans'
+gem 'carrierwave', '~> 3.0'
+gem 'mini_magick'
+gem 'fog-aws'

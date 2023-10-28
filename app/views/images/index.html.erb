@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Images</h1>
+<%= link_to "New", new_image_path, class: 'btn btn-primary' %>
+<div class="row">
+  <div class="col-10">
+    <table class="table table-bordered table-striped table-hover mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @images.each do |image| %>
+        <tr>
+          <th scope="row"> <%= image.name%> </th>
+          <td> <%= image_tag(image.picture.url, size: "32x32") if image.picture? %> </td>      
+          <td class="center-column"> 
+            <%= link_to 'View', image, class: "btn btn-sm btn-primary ml-1", method: :post %>           
+          </td>          
+        </tr>
+        <% end %>
+      </tbody>      
+    </table>
+  </div>
+</div>
+
+
